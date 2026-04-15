@@ -25,8 +25,10 @@ import os
 from pathlib import Path
 
 env_candidates = [
-    Path('/home/vagrant/.env'),
-    Path(__file__).resolve().parents[2] / '.env'
+    Path('/app/.env'),  # Docker container path
+    Path('/home/vagrant/.env'),  # Vagrant path
+    Path('./.env'),  # Current directory (development)
+    Path(__file__).resolve().parent.parent.parent / '.env'  # Fallback: up from /app/server.py
 ]
 for env_file in env_candidates:
     if env_file.exists():

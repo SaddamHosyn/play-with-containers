@@ -1,6 +1,6 @@
-# CRUD Master - Microservices Architecture
+# CRUD Master - Docker Microservices Architecture
 
-A production-ready microservices project demonstrating distributed system design principles with Python, Flask, PostgreSQL, RabbitMQ, and Vagrant.
+A production-ready microservices project demonstrating distributed system design principles with **Docker**, **Docker Compose**, Python, Flask, PostgreSQL, and RabbitMQ.
 
 ---
 
@@ -12,38 +12,39 @@ A production-ready microservices project demonstrating distributed system design
 - [Quick Start](#quick-start)
 - [Project Structure](#project-structure)
 - [Services Overview](#services-overview)
+- [Configuration](#configuration)
 - [API Endpoints](#api-endpoints)
-- [Database Setup](#database-setup)
 - [Testing with Postman](#testing-with-postman)
+- [Docker Management](#docker-management)
 - [Key Features](#key-features)
+- [Container Concepts](#container-concepts)
 - [Troubleshooting](#troubleshooting)
 
 ---
 
 ## 🎯 Project Overview
 
-**CRUD Master** is a microservices-based movie inventory and billing system that demonstrates:
+**CRUD Master** is a containerized microservices-based movie inventory and billing system that demonstrates:
 
-- **Distributed Architecture**: Three independent services running on separate VMs
-- **Reverse Proxy Pattern**: API Gateway acting as reverse proxy for unified client entry point
-- **HTTP Proxy Pattern**: API Gateway routing requests via HTTP proxy to backend services
-- **Message Queue Pattern**: Asynchronous order processing via RabbitMQ
-- **Database Persistence**: PostgreSQL for data durability
-- **Service Resilience**: Queue durability and eventual consistency
-- **Infrastructure as Code**: Vagrant for reproducible VM provisioning
+- **Containerized Microservices**: Six independent Docker containers orchestrated with Docker Compose
+- **Reverse Proxy Pattern**: API Gateway acting as single entry point via port 3000
+- **HTTP Proxy Pattern**: API Gateway routing requests to backend services
+- **Asynchronous Message Queue**: RabbitMQ for decoupled service communication
+- **Data Persistence**: PostgreSQL databases with named volumes
+- **Service Resilience**: Automatic container restart, queue durability, and eventual consistency
+- **Infrastructure as Code**: Docker and Docker Compose for reproducible infrastructure
 
 ### Stack
 
-| Component              | Technology           |
-| ---------------------- | -------------------- |
-| **VMs & Provisioning** | VirtualBox + Vagrant |
-| **Runtime**            | Python 3.10+         |
-| **Web Framework**      | Flask                |
-| **Databases**          | PostgreSQL 16        |
-| **Message Queue**      | RabbitMQ 4.x         |
-| **Process Manager**    | PM2                  |
-| **Testing**            | Postman              |
-| **Documentation**      | OpenAPI/Swagger      |
+| Component            | Technology                           |
+| -------------------- | ------------------------------------ |
+| **Containerization** | Docker (Debian bullseye base images) |
+| **Orchestration**    | Docker Compose 3.8                   |
+| **Runtime**          | Python 3.9                           |
+| **Web Framework**    | Flask 2.3.0                          |
+| **Databases**        | PostgreSQL 13                        |
+| **Message Queue**    | RabbitMQ 4.x                         |
+| **Testing**          | Postman                              |
 
 ---
 

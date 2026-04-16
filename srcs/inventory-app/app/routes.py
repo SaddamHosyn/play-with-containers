@@ -150,7 +150,7 @@ def create_movie():
             'success': True,
             'message': 'Movie created successfully',
             'movie': new_movie.to_dict()
-        }), 201
+        }), 200
         
     except ValueError as e:
         logger.error(f"ValueError creating movie: {str(e)}")

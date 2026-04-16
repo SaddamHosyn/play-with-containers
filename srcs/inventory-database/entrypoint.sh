@@ -59,7 +59,7 @@ create_db_and_user() {
     sleep 2
     
     # Create user with login ability
-    runuser -u postgres -- $PG_BIN/psql -d postgres -c "CREATE USER inventory_user WITH PASSWORD 'inventory_pass';" 2>/dev/null || true
+    runuser -u postgres -- $PG_BIN/psql -d postgres -c "CREATE USER inventory_user WITH PASSWORD '${INVENTORY_DB_PASSWORD}';" 2>/dev/null || true
     
     # Create database owned by user
     runuser -u postgres -- $PG_BIN/psql -d postgres -c "CREATE DATABASE inventory_db OWNER inventory_user;" 2>/dev/null || true

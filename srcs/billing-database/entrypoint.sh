@@ -59,7 +59,7 @@ create_db_and_user() {
     sleep 2
     
     # Create user with login ability
-    runuser -u postgres -- $PG_BIN/psql -d postgres -c "CREATE USER billing_user WITH PASSWORD 'billing_pass';" 2>/dev/null || true
+    runuser -u postgres -- $PG_BIN/psql -d postgres -c "CREATE USER billing_user WITH PASSWORD '${BILLING_DB_PASSWORD}';" 2>/dev/null || true
     
     # Create database owned by user
     runuser -u postgres -- $PG_BIN/psql -d postgres -c "CREATE DATABASE billing_db OWNER billing_user;" 2>/dev/null || true

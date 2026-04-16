@@ -220,7 +220,7 @@ def create_app():
             return jsonify({
                 'message': 'Order accepted and queued for processing',
                 'order': order_data
-            }), 201
+            }), 200
             
         except json.JSONDecodeError:
             return jsonify({'error': 'Invalid JSON in request body'}), 400

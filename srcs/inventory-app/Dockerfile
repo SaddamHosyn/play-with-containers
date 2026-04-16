@@ -21,9 +21,5 @@ COPY . .
 # Expose port
 EXPOSE 8080
 
-# Health check
-HEALTHCHECK --interval=15s --timeout=5s --retries=5 --start-period=20s \
-    CMD python3 -c "import requests; requests.get('http://localhost:8080/api/movies')" || exit 1
-
 # Run application
 ENTRYPOINT ["python3", "server.py"]

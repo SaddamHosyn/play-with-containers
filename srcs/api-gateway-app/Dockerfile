@@ -1,9 +1,10 @@
 FROM debian:bullseye
 
-# Install Python 3.9 and pip with minimal dependencies
+# Install Python 3.9, pip, and curl
 RUN apt-get update && apt-get install -y \
     python3.9 \
     python3-pip \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
@@ -22,8 +23,8 @@ COPY . .
 EXPOSE 3000
 
 # Health check
-HEALTHCHECK --interval=15s --timeout=5s --retries=5 --start-period=20s \
-    CMD python3 -c "import requests; requests.get('http://localhost:3000/')" || exit 1
+HEALTHCHECK --interval=10s --timeout=5s --retries=5 --start-period=20s \
+    CMD curl -f http://localhost:3000/ || exit 1
 
 # Run application
 ENTRYPOINT ["python3", "server.py"]

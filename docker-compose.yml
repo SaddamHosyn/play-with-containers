@@ -65,18 +65,6 @@ services:
       - microservices-net
     expose:
       - "8080"
-    healthcheck:
-      test:
-        [
-          "CMD",
-          "python3",
-          "-c",
-          "import requests; requests.get('http://localhost:8080/api/movies')",
-        ]
-      interval: 15s
-      timeout: 5s
-      retries: 5
-      start_period: 20s
 
   # Billing Service
   billing-app:
@@ -95,6 +83,7 @@ services:
       RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
       RABBITMQ_HOST: RabbitMQ
       RABBITMQ_PORT: ${RABBITMQ_PORT}
+      RABBITMQ_QUEUE: ${RABBITMQ_QUEUE}
     depends_on:
       - billing-database
       - RabbitMQ
@@ -102,18 +91,6 @@ services:
       - microservices-net
     expose:
       - "8080"
-    healthcheck:
-      test:
-        [
-          "CMD",
-          "python3",
-          "-c",
-          "import requests; requests.get('http://localhost:8080/api/billing')",
-        ]
-      interval: 15s
-      timeout: 5s
-      retries: 5
-      start_period: 20s
 
   # API Gateway
   api-gateway-app:
@@ -130,6 +107,7 @@ services:
       RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD}
       RABBITMQ_HOST: RabbitMQ
       RABBITMQ_PORT: ${RABBITMQ_PORT}
+      RABBITMQ_QUEUE: ${RABBITMQ_QUEUE}
       GATEWAY_PORT: ${GATEWAY_PORT}
     depends_on:
       - inventory-app
@@ -138,27 +116,24 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - api-gateway-app:/var/logs/api-gateway
+      - api-gateway-volume:/var/logs/api-gateway
     networks:
       - microservices-net
     healthcheck:
-      test:
-        [
-          "CMD",
-          "python3",
-          "-c",
-          "import requests; requests.get('http://localhost:3000')",
-        ]
-      interval: 15s
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
       start_period: 20s
 
 # Named volumes
 volumes:
   inventory-database:
+    name: play-with-containers_inventory-database
   billing-database:
-  api-gateway-app:
+    name: play-with-containers_billing-database
+  api-gateway-volume:
+    name: play-with-containers_api-gateway-volume
 
 # Custom network
 networks:

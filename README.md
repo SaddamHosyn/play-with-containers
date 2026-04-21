@@ -1,4 +1,4 @@
-# CRUD Master - Docker Microservices Architecture
+# play-with-containers - Docker Microservices Architecture
 
 A hands-on learning project introducing **containerization concepts** by building a complete microservices architecture using Docker and Docker Compose.
 

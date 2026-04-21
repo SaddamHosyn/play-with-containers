@@ -1,8 +1,9 @@
 services:
   # PostgreSQL Inventory Database
   inventory-database:
-    build: ./srcs/inventory-database
-    image: inventory-database:latest
+    build:
+      context: ./srcs/inventory-database
+    image: inventory-database:1.0.0
     container_name: inventory-database
     restart: on-failure
     environment:
@@ -16,8 +17,9 @@ services:
 
   # PostgreSQL Billing Database
   billing-database:
-    build: ./srcs/billing-database
-    image: billing-database:latest
+    build:
+      context: ./srcs/billing-database
+    image: billing-database:1.0.0
     container_name: billing-database
     restart: on-failure
     environment:
@@ -31,8 +33,9 @@ services:
 
   # RabbitMQ Message Queue
   RabbitMQ:
-    build: ./srcs/rabbitmq-service
-    image: rabbitmq:latest
+    build:
+      context: ./srcs/rabbitmq-service
+    image: rabbitmq-service:1.0.0
     container_name: RabbitMQ
     restart: on-failure
     environment:
@@ -46,8 +49,9 @@ services:
 
   # Inventory Service
   inventory-app:
-    build: ./srcs/inventory-app
-    image: inventory-app:latest
+    build:
+      context: ./srcs/inventory-app
+    image: inventory-app:1.0.0
     container_name: inventory-app
     restart: on-failure
     environment:
@@ -66,8 +70,9 @@ services:
 
   # Billing Service
   billing-app:
-    build: ./srcs/billing-app
-    image: billing-app:latest
+    build:
+      context: ./srcs/billing-app
+    image: billing-app:1.0.0
     container_name: billing-app
     restart: on-failure
     environment:
@@ -92,8 +97,9 @@ services:
 
   # API Gateway
   api-gateway-app:
-    build: ./srcs/api-gateway-app
-    image: api-gateway-app:latest
+    build:
+      context: ./srcs/api-gateway-app
+    image: api-gateway-app:1.0.0
     container_name: api-gateway-app
     restart: on-failure
     environment:
@@ -118,7 +124,7 @@ services:
     networks:
       - microservices-net
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
       interval: 10s
       timeout: 5s
       retries: 10

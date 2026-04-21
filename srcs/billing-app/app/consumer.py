@@ -49,13 +49,25 @@ def consume_billing_queue(app):
         blocked_connection_timeout=300  # Timeout after 5 minutes of no response
     )
     
-    # Step 2: Establish connection to RabbitMQ
-    try:
-        connection = pika.BlockingConnection(connection_params)
-        print(f"[RabbitMQ Consumer] ✅ Connected to RabbitMQ at {rabbitmq_host}:{rabbitmq_port}")
-    except Exception as e:
-        print(f"[RabbitMQ Consumer] ❌ Failed to connect to RabbitMQ: {e}")
-        raise
+    # Step 2: Establish connection to RabbitMQ (with retry for startup ordering)
+    # RabbitMQ takes ~15 seconds to fully start, so we retry until it's ready
+    connection = None
+    max_retries = 30
+    retry_delay = 2  # seconds
+
+    for attempt in range(1, max_retries + 1):
+        try:
+            connection = pika.BlockingConnection(connection_params)
+            print(f"[RabbitMQ Consumer] ✅ Connected to RabbitMQ at {rabbitmq_host}:{rabbitmq_port}")
+            break
+        except Exception as e:
+            if attempt < max_retries:
+                print(f"[RabbitMQ Consumer] ⏳ Waiting for RabbitMQ (attempt {attempt}/{max_retries})...")
+                import time
+                time.sleep(retry_delay)
+            else:
+                print(f"[RabbitMQ Consumer] ❌ Failed to connect to RabbitMQ after {max_retries} attempts: {e}")
+                raise
     
     # Step 3: Create channel for communication
     channel = connection.channel()

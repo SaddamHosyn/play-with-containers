@@ -74,7 +74,7 @@ By completing this project, you will:
 - ✅ Containers automatically restart on failure (restart policy)
 - ✅ Base images: **Penultimate stable version** (latest stable minus one)
 - ✅ Custom Docker images (NOT from Docker Hub pre-built images, except base OS)
-- ✅ Service name = Docker image name (inventory-db:latest, billing-db:latest, etc.)
+- ✅ Service name = Docker image name with explicit version (inventory-database:1.0.0, billing-database:1.0.0, etc.)
 - ✅ External access only through api-gateway-app:3000
 
 ### Docker Volumes (3 total)

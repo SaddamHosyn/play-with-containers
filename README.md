@@ -29,7 +29,7 @@ A hands-on learning project introducing **containerization concepts** by buildin
 
 ## 🎯 Project Overview
 
-**CRUD Master** is a containerized microservices-based movie inventory and billing system demonstrating real-world containerization concepts:
+**play-with-containers** is a containerized microservices-based movie inventory and billing system demonstrating real-world containerization concepts:
 
 - **Multi-Container Architecture**: 6 independent Docker containers orchestrated with Docker Compose
 - **Service Isolation**: Each service runs in its own container for optimal performance
@@ -728,7 +728,7 @@ cat .env | grep DB
 ### Collection Structure
 
 ```
-📦 CRUD Master - Audit Validation Suite
+📦 play-with-containers - Audit Validation Suite
 ├── 📂 Movies
 │   ├── POST /api/movies - create movie
 │   ├── GET /api/movies - all movies
@@ -748,7 +748,7 @@ cat .env | grep DB
 **Option 1: Run Full Collection**
 
 1. Click ⏶ **Run Collection** button
-2. Select **CRUD Master - Audit Validation Suite**
+2. Select **play-with-containers - Audit Validation Suite**
 3. Click **Run**
 4. View test results
 

@@ -80,8 +80,8 @@
               "raw": "{\n  \"title\": \"Arrival\",\n  \"description\": \"Sci-fi drama about first contact.\"\n}"
             },
             "url": {
-              "raw": "http://192.168.56.10:3000/api/movies",
-              "host": ["192.168.56.10"],
+              "raw": "http://192.168.1.185:3000/api/movies",
+              "host": ["192.168.1.185"],
               "protocol": "http",
               "port": "3000",
               "path": ["api", "movies"]
@@ -136,8 +136,8 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://192.168.56.10:3000/api/movies",
-              "host": ["192.168.56.10"],
+              "raw": "http://192.168.1.185:3000/api/movies",
+              "host": ["192.168.1.185"],
               "protocol": "http",
               "port": "3000",
               "path": ["api", "movies"]
@@ -170,8 +170,8 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://192.168.56.10:3000/api/movies?title=atri",
-              "host": ["192.168.56.10"],
+              "raw": "http://192.168.1.185:3000/api/movies?title=atri",
+              "host": ["192.168.1.185"],
               "protocol": "http",
               "port": "3000",
               "path": ["api", "movies"],
@@ -229,8 +229,8 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://192.168.56.10:3000/api/movies/{{movieId}}",
-              "host": ["192.168.56.10"],
+              "raw": "http://192.168.1.185:3000/api/movies/{{movieId}}",
+              "host": ["192.168.1.185"],
               "protocol": "http",
               "port": "3000",
               "path": ["api", "movies", "{{movieId}}"]
@@ -283,8 +283,8 @@
               "raw": "{\n  \"rating\": 9.0,\n  \"available_copies\": 3\n}"
             },
             "url": {
-              "raw": "http://192.168.56.10:3000/api/movies/{{movieId}}",
-              "host": ["192.168.56.10"],
+              "raw": "http://192.168.1.185:3000/api/movies/{{movieId}}",
+              "host": ["192.168.1.185"],
               "protocol": "http",
               "port": "3000",
               "path": ["api", "movies", "{{movieId}}"]
@@ -322,8 +322,8 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://192.168.56.10:3000/api/movies/{{movieId}}",
-              "host": ["192.168.56.10"],
+              "raw": "http://192.168.1.185:3000/api/movies/{{movieId}}",
+              "host": ["192.168.1.185"],
               "protocol": "http",
               "port": "3000",
               "path": ["api", "movies", "{{movieId}}"]
@@ -367,8 +367,8 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://192.168.56.10:3000/api/movies",
-              "host": ["192.168.56.10"],
+              "raw": "http://192.168.1.185:3000/api/movies",
+              "host": ["192.168.1.185"],
               "protocol": "http",
               "port": "3000",
               "path": ["api", "movies"]
@@ -435,8 +435,8 @@
               "raw": "{\n  \"user_id\": \"audit_user_01\",\n  \"number_of_items\": \"5\",\n  \"total_amount\": \"49.99\"\n}"
             },
             "url": {
-              "raw": "http://192.168.56.10:3000/api/billing",
-              "host": ["192.168.56.10"],
+              "raw": "http://192.168.1.185:3000/api/billing",
+              "host": ["192.168.1.185"],
               "protocol": "http",
               "port": "3000",
               "path": ["api", "billing"]
@@ -481,8 +481,8 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://192.168.56.10:3000/health",
-              "host": ["192.168.56.10"],
+              "raw": "http://192.168.1.185:3000/health",
+              "host": ["192.168.1.185"],
               "protocol": "http",
               "port": "3000",
               "path": ["health"]

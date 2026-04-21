@@ -34,3 +34,4 @@ Thumbs.db
 .vagrant/
 *.log
 node_modules/
+entireproject.md

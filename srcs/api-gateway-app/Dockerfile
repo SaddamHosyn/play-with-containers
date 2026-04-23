@@ -22,9 +22,5 @@ COPY . .
 # Expose port
 EXPOSE 3000
 
-# Health check
-HEALTHCHECK --interval=10s --timeout=5s --retries=5 --start-period=20s \
-    CMD curl -f http://localhost:3000/health || exit 1
-
 # Run application
 ENTRYPOINT ["python3", "server.py"]

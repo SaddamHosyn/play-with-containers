@@ -190,7 +190,7 @@ billing-app ──► billing-db:5432           (PostgreSQL)
 
 **Benefits of This Architecture:**
 
-- **Single Entry Point**: `localhost:3000` or `192.168.1.185:3000` (with port forwarding)
+- **Single Entry Point**: `localhost:3000` or `192.168.1.161:3000` (with port forwarding)
 - **Service Isolation**: Each service independent, can restart/update separately
 - **Data Persistence**: Volumes survive container restarts
 - **Easy Scaling**: Add more containers/replicas with docker-compose
@@ -805,7 +805,7 @@ Result: Order data is never lost (eventual consistency)
 
 ```
 Benefits:
-- Single entry point (API Gateway at localhost:3000 or 192.168.1.185:3000)
+- Single entry point (API Gateway at localhost:3000 or 192.168.1.161:3000)
 - Clients unaware of backend service container addresses
 - Easy to scale (add multiple backend container instances)
 - Can implement load balancing
